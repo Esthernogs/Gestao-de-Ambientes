@@ -3,7 +3,7 @@
 <body>
 <div  th:fragment="sidebar">
 <!-- Sidebar -->
-<div class="sidebar" style="background: #ccc;">
+<div class="sidebar" style="background: #fff;">
     <div class="sidebar-logo">
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="">
@@ -12,16 +12,14 @@
                         src="../assets/img/logo/logo.png"
                         alt="navbar brand"
                         class="navbar-brand"
-                        height="20"
+                        height="38"
                 />
             </a>
             <div class="nav-toggle">
-                <button class="btn btn-toggle toggle-sidebar">
-                    <i class="gg-menu-right" style="background:red;"></i>
+                <button class="btn btn-toggle">
+                    <i class="fa fa-bars" style="background:red;"></i>
                 </button>
-                <button class="btn btn-toggle sidenav-toggler">
-                    <i class="gg-menu-left" style="background:red;"></i>
-                </button>
+
             </div>
             <button class="topbar-toggler more">
                 <i class="gg-more-vertical-alt" style="background:red;"></i>
@@ -29,25 +27,25 @@
         </div>
         <!-- End Logo Header -->
     </div>
-    <div class="sidebar-wrapper scrollbar scrollbar-inner">
+    <div class="sidebar-wrapper scrollbar scrollbar-inner" style="background: #940505">
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <!-- Menu Professor-->
                 <li class="nav-item">
                     <a href="#">
-                        <i class="fas fa-file"></i>
-                        <p>Professores</p>
+                        <i class="fa fa-graduation-cap" style="color:#fff;"></i>
+                        <p style="#fff;">Professores</p>
                     </a>
                 </li>
                 <!-- Fim Menu Professor-->
-                <!-- Menu Professor-->
+                <!-- Menu Ambientes-->
                 <li class="nav-item">
                     <a href="#">
-                        <i class="fas fa-file"></i>
+                        <i class="fa fa-object-group" style="color:#fff;"></i>
                         <p>Ambientes</p>
                     </a>
                 </li>
-                <!-- Fim Menu Professor-->
+                <!-- Fim Menu Ambientes-->
             </ul>
         </div>
     </div>

@@ -5915,6 +5915,7 @@ label.error {
       font-size: 16px; }
     .topbar_open .navbar-header .navbar-nav > .nav-item:last-child .nav-link {
       padding: 0px !important; }
+      .nav-item a{color:#fff;}
     .topbar_open .navbar-header .navbar-nav > .nav-item:last-child .quick-sidebar-toggler {
       padding-left: 5px !important; }
   .topbar_open .toggle-nav-search {
@@ -6909,5 +6910,5 @@ body {
     font-size: 65px !important; }
   .wrapper.not-found .desc {
     font-size: 18px !important; } }
-
+.nav>.nav-item a{color:#fff;}
 /*# sourceMappingURL=kaiadmin.css.map */
