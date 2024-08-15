@@ -1,5 +1,6 @@
 package com.example.gestaoamb.controller;
 
+import com.example.gestaoamb.model.Professor;
 import com.example.gestaoamb.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,5 +19,12 @@ public class ProfessorController {
     public String listagem(Model model){
         model.addAttribute("professores", professorRepository.findAll());
         return "professor/listagem";
+    }
+
+
+    @GetMapping("/form-inserir")
+    public String formInserir(Model model){
+        model.addAttribute("professor", new Professor());
+        return "professor/form-inserir";
     }
 }
