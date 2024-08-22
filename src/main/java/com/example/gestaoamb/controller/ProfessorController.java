@@ -5,8 +5,13 @@ import com.example.gestaoamb.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/professor")
@@ -26,5 +31,42 @@ public class ProfessorController {
     public String formInserir(Model model){
         model.addAttribute("professor", new Professor());
         return "professor/form-inserir";
+    }
+
+    @PostMapping ("/inserir")
+    public String inserir(Professor professor, BindingResult result, RedirectAttributes redirectAttributes){
+        if (result.hasErrors()){
+            return  "professor/form-inserir";
+        }
+
+        professorRepository.save(professor);
+        redirectAttributes.addFlashAttribute("mensagem", "Professor inserido com sucesso!");
+        return "redirect:/professor";
+    }
+
+    @GetMapping ("/excluir/{id}" )
+    public String excluir (@PathVariable ("id") Long id){
+        Professor professor = professorRepository.findById(id).orElseThrow();
+        professorRepository.delete(professor);
+
+        return "redirect:/professor";
+    }
+
+   @GetMapping ("/form-alterar/{id}")
+    public String formAlterar (@PathVariable ("id") Long id, Model model){
+        Professor professor = professorRepository.findById(id).orElseThrow();
+        model.addAttribute("professor", professor);
+        return "professor/form-alterar";
+   }
+
+    @PostMapping ("/alterar")
+    public String alterar(Professor professor, BindingResult result, RedirectAttributes redirectAttributes){
+        if (result.hasErrors()){
+            return  "professor/form-alterar";
+        }
+
+        professorRepository.save(professor);
+        redirectAttributes.addFlashAttribute("mensagem", "Professor alterado com sucesso!");
+        return "redirect:/professor";
     }
 }
