@@ -2,7 +2,7 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Cadastro de Alunos</title>
+    <title>Cadastro de Professores</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
@@ -40,7 +40,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-lg-12">
                                             <div class="form-group">
-                                                <input type="hidden" name="id"  th:field="*{id}" >
+                                                <input type="hidden" name="id"  th:field="*{professor.id}" >
                                                 <label for="nome">Nome</label>
                                                 <input
                                                         type="text"

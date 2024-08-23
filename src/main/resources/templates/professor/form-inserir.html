@@ -2,7 +2,7 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Cadastro de Alunos</title>
+    <title>Cadastro de Professores</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
@@ -49,16 +49,6 @@
                                                         th:field="*{nome}"
                                                 />
 
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label for="cpf">CPF</label>
-                                                <input
-                                                        type="cpf"
-                                                        class="form-control"
-                                                        id="cpf"
-                                                        placeholder="Informe o CPF do Professor"
-                                                        th:field="*{cpf}"
-                                                />
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="email">E-mail</label>
