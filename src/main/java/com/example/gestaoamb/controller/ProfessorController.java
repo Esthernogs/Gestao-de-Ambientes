@@ -38,7 +38,7 @@ public class ProfessorController {
         if (result.hasErrors()){
             return  "professor/form-inserir";
         }
-
+     
         professorRepository.save(professor);
         redirectAttributes.addFlashAttribute("mensagem", "Professor inserido com sucesso!");
         return "redirect:/professor";
