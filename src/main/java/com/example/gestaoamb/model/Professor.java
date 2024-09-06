@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @DiscriminatorValue(value = "P")
 @Entity
 public class Professor extends Pessoa{
+
 }

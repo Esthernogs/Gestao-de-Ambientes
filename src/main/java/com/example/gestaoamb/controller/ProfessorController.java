@@ -1,5 +1,6 @@
 package com.example.gestaoamb.controller;
 
+import com.example.gestaoamb.model.Pessoa;
 import com.example.gestaoamb.model.Professor;
 import com.example.gestaoamb.repository.ProfessorRepository;
 import jakarta.validation.Valid;
@@ -29,7 +30,10 @@ public class ProfessorController {
 
     @GetMapping("/form-inserir")
     public String formInserir(Model model){
-        model.addAttribute("professor", new Professor());
+
+        Pessoa professor = new Professor();
+
+        model.addAttribute("professor", professor);
         return "professor/form-inserir";
     }
 
@@ -38,18 +42,20 @@ public class ProfessorController {
         if (result.hasErrors()){
             return  "professor/form-inserir";
         }
-     
+
         professorRepository.save(professor);
         redirectAttributes.addFlashAttribute("mensagem", "Professor inserido com sucesso!");
         return "redirect:/professor";
     }
 
     @GetMapping ("/excluir/{id}" )
-    public String excluir (@PathVariable ("id") Long id){
+    public String excluir (@PathVariable ("id") Long id, RedirectAttributes redirectAttributes){
         Professor professor = professorRepository.findById(id).orElseThrow();
-        professorRepository.delete(professor);
 
+        redirectAttributes.addFlashAttribute("mensagem", "Professor excluído com sucesso!");
         return "redirect:/professor";
+
+
     }
 
    @GetMapping ("/form-alterar/{id}")
