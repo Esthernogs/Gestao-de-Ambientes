@@ -34,6 +34,7 @@
                                         <thead>
                                         <tr>
                                             <th>Nome</th>
+                                            <th>CPF</th>
                                             <th>E-mail</th>
                                             <th>Ações</th>
                                         </tr>
@@ -47,6 +48,7 @@
                                         <!-- Recurso do Themyleaf. Percorre a lista de alunos e preenche a tabela -->
                                         <tr th:each="professor : ${professores}">
                                             <td><span th:text="${professor.nome}"> Nome </span></td>
+                                            <td><span th:text="${professor.cpf}"> CPF </span></td>
                                             <td><span th:text="${professor.email}"> Email </span></td>
                                             <td>
 
