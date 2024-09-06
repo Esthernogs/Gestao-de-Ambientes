@@ -52,6 +52,8 @@ public class ProfessorController {
     public String excluir (@PathVariable ("id") Long id, RedirectAttributes redirectAttributes){
         Professor professor = professorRepository.findById(id).orElseThrow();
 
+        professorRepository.delete(professor);
+
         redirectAttributes.addFlashAttribute("mensagem", "Professor excluído com sucesso!");
         return "redirect:/professor";
 
@@ -71,7 +73,7 @@ public class ProfessorController {
             return  "professor/form-alterar";
         }
 
-        professorRepository.save(professor);
+         professorRepository.save(professor);
         redirectAttributes.addFlashAttribute("mensagem", "Professor alterado com sucesso!");
         return "redirect:/professor";
     }
