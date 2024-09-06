@@ -23,7 +23,7 @@
 
 
 
-                        <div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+                        <div id="mensagem" class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             <span th:text="${mensagem}"></span>
                         </div>
@@ -134,6 +134,11 @@
               },
           },
       });
+
+       // fade out the alert after 5 seconds
+            $("#mensagem").fadeTo(2000, 500).slideUp(500, function () {
+                $("#mensagem").slideUp(500);
+            });
   });
 </script>
 </body>
