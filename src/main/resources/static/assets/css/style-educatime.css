@@ -2,3 +2,13 @@
     background: rgb(148, 5, 5) !important;
         border-color: rgb(148, 5, 5) !important;
     }
+
+.btn-primary {
+    background: rgb(148, 5, 5) !important;
+        border-color: rgb(148, 5, 5) !important;
+    }
+
+    .btn-primary:hover {
+        background: rgb(148, 5, 5) !important;
+            border-color: rgb(148, 5, 5) !important;
+        }
