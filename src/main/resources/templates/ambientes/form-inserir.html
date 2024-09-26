@@ -2,7 +2,7 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Cadastro de Professores</title>
+    <title>Cadastro de ambientes</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
@@ -34,7 +34,7 @@
                         <div class="card">
                             <form action="#" th:action="@{/professor/inserir}" th:object="${professor}" method="post">
                                 <div class="card-header">
-                                    <div class="card-title">Dados do Professor</div>
+                                    <div class="card-title">Dados do ambiente</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -50,7 +50,7 @@
                                                 />
                                             </div>
                                             <div class="form-group col-md-3">
-                                                <label for="cpf">CPF</label>
+                                                <label for="cpf">Descrição do ambiente</label>
                                                 <input
                                                         type="text"
                                                         class="form-control"
@@ -59,19 +59,6 @@
                                                         th:field="*{cpf}"
                                                 />
                                             </div>
-                                            <div class="form-group col-md-3">
-                                                <label for="email">E-mail</label>
-                                                <input
-                                                        type="email"
-                                                        class="form-control"
-                                                        id="email"
-                                                        placeholder="Informe o E-mail do Professor"
-                                                        th:field="*{email}"
-                                                />
-                                            </div>
-
-
-
 
                                         </div>
                                     </div>
