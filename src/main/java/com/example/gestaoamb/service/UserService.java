@@ -1,4 +1,4 @@
-package com.example.gestaoamb.service.user;
+package com.example.gestaoamb.service;
 
 import com.example.gestaoamb.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,3 +21,4 @@ public class UserService implements UserDetailsService {
     }
 
 }
+

@@ -1,6 +1,6 @@
 package com.example.gestaoamb.config;
 
-import com.example.gestaoamb.service.user.UserService;
+import com.example.gestaoamb.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,7 +29,6 @@ public class SecurityConfig {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring()
                 //.requestMatchers(new AntPathRequestMatcher("/**"))
-                .requestMatchers(new AntPathRequestMatcher("/ambientes/**"))
                 .requestMatchers(new AntPathRequestMatcher("/assets/**"));
 
     }
@@ -40,6 +39,7 @@ public class SecurityConfig {
         httpSecurity
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(new AntPathRequestMatcher("/login/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/assets/**")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .userDetailsService(userService)

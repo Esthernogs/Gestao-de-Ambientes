@@ -33,12 +33,7 @@
             class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
     >
         <div class="container-fluid">
-
-
             <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
-
-
-
                 <li class="nav-item topbar-icon dropdown hidden-caret">
                     <a
                             class="nav-link dropdown-toggle"
@@ -115,6 +110,56 @@
                             >See all notifications<i class="fa fa-angle-right"></i>
                             </a>
                         </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item topbar-user dropdown hidden-caret">
+                    <a
+                            class="dropdown-toggle profile-pic"
+                            data-bs-toggle="dropdown"
+                            href="#"
+                            aria-expanded="false"
+                    >
+                        <div class="avatar-sm">
+                            <img
+                                    th:if="${#authentication.principal.id}"
+                                    th:src="@{/assets/img/fotos-usuarios/{id}(id=${#authentication.principal.image})}"
+                                    class="rounded-circle me-lg-2"
+                                    alt=""
+                                    style="width: 40px; height: 40px;"
+                            >
+                        </div>
+                        <span class="profile-username">
+                      <span class="op-7">Olá,</span>
+                      <span
+                              th:if="${#authentication.principal.id}"
+                              th:text="${#authentication.principal.firstName}"
+                              class="d-none d-lg-inline-flex"
+                      >
+	Usuário
+</span>
+                    </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                        <div class="dropdown-user-scroll scrollbar-outer">
+                            <li>
+                                <div class="user-box">
+                                    <div class="avatar-lg">
+                                        <img
+                                                th:if="${#authentication.principal.id}"
+                                                th:src="@{/assets/img/fotos-usuarios/{id}(id=${#authentication.principal.image})}"
+                                                class="rounded-circle me-lg-2"
+                                                alt=""
+                                                style="width: 40px; height: 40px;"
+                                        >
+                                    </div>
+                            <li>
+                                <div class="dropdown-divider"></div>
+                                <form th:action="@{/logout}" method="post">
+                                    <button type="submit" class="dropdown-item">Sair</button>
+                                </form>
+                            </li>
+                        </div>
                     </ul>
                 </li>
 
