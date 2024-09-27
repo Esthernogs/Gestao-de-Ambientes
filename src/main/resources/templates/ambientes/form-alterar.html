@@ -32,7 +32,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form action="#" th:action="@{/ambientes/salvar}" enctype="multipart/form-data"  th:object="${ambiente}" method="post">
+                            <form action="#" th:action="@{/ambientes/salvar}" th:object="${ambiente}" method="post">
+                                <input type="hidden" th:field="*{id}">
                                 <div class="card-header">
                                     <div class="card-title">Dados do ambiente</div>
                                 </div>
@@ -78,7 +79,6 @@
                                                         class="form-control"
                                                         id="image"
                                                         name="foto"
-                                                        accept="image/png, image/jpeg"
                                                 />
                                             </div>
                                         </div>
