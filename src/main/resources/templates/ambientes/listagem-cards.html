@@ -3,27 +3,18 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Ambientes</title>
-
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
-
 </head>
 <div class="wrapper">
     <!--sidebar-->
     <div th:replace="~{/fragments/sidebar.html :: sidebar}"></div>
     <!--end sidebar-->
-
     <div class="main-panel">
         <div th:replace="~{/fragments/main-header.html :: main-header}"></div>
-
         <div class="container">
             <div class="page-inner">
-
-
                 <!-- linhas -->
-
                 <div class="row">
-
-
                     <!-- Customized Card -->
                     <div class="card">
                         <div class="card-header">
@@ -60,15 +51,10 @@
             </div>
             <!--Fim do Grid-->
         </div>
-
-
     </div>
 </div>
 <div th:replace="~{fragments/footer.html :: footer}"></div>
-
 <!-- Custom template | don't include it in your project! -->
-
-
 <!-- End Custom template -->
 </div>
 <!--   Core JS Files   -->
@@ -107,13 +93,10 @@
                 },
             },
         });
-
         // fade out the alert after 5 seconds
         $("#mensagem").fadeTo(2000, 500).slideUp(500, function () {
             $("#mensagem").slideUp(500);
         });
-
-
     });
 </script>
 </div>
