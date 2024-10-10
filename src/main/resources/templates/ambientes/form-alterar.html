@@ -2,7 +2,7 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Cadastro de ambientes</title>
+    <title>Cadastro de Ambientes</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
@@ -31,75 +31,77 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        < class="card">
-                        <form action="#" th:action="@{/ambientes/salvar}" th:object="${ambiente}" method="post">
-                            <input type="hidden" th:field="*{id}">
-                            <div class="card-header">
-                                <div class="card-title">Dados do ambiente</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12 col-lg-12">
-                                        <div class="form-group">
-                                            <label for="nome">Nome</label>
-                                            <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="nome"
-                                                    placeholder="Informe o nome do ambiente"
-                                                    th:field="*{nome}"
-                                            />
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="descricao">Descrição do ambiente</label>
-                                            <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="descricao"
-                                                    placeholder="Informe a descrição"
-                                                    th:field="*{descricao}"
-                                            />
-                                        </div>
+                        <div class="card">
+                            <form action="#" th:action="@{/ambientes/salvar}" enctype="multipart/form-data"
+                                  th:object="${ambiente}" method="post">
+                                <input type="hidden" th:field="*{id}">
+                                <div class="card-header">
+                                    <div class="card-title">Dados do ambiente</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="nome">Nome</label>
+                                                <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="nome"
+                                                        placeholder="Informe o nome do ambiente"
+                                                        th:field="*{nome}"
+                                                />
+                                            </div>
+                                            <div class="form-group col-lg-12">
+                                                <label for="descricao">Descrição do ambiente</label>
+                                                <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="descricao"
+                                                        placeholder="Informe a descrição"
+                                                        th:field="*{descricao}"
+                                                />
+                                            </div>
 
-                                        <div class="form-group col-md-3">
-                                            <label for="agendamento">Agendamento de ambiente</label>
-                                            <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="agendamento"
-                                                    placeholder="Agendamento"
-                                                    th:field="*{agendamento}"
-                                            />
-                                        </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="agendamento">Agendamento de ambiente</label>
+                                                <input
+                                                        type="date"
+                                                        class="form-control"
+                                                        id="agendamento"
+                                                        placeholder="Agendamento"
+                                                        th:field="*{dataAgendamento}"
+                                                />
+                                            </div>
 
-                                        <div class="form-group col-md-3">
-                                            <label for="image">Foto do ambiente</label>
-                                            <input
-                                                    type="file"
-                                                    class="form-control"
-                                                    id="image"
-                                                    name="foto"
-                                            />
+                                            <div class="form-group col-md-3">
+                                                <label for="image">Foto do ambiente</label>
+                                                <input
+                                                        type="file"
+                                                        class="form-control"
+                                                        id="image"
+                                                        name="foto"
+                                                        accept="image/png, image/jpeg"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="card-action">
+                                        <button class="btn btn-success" type="submit">Salvar</button>
+                                        <a href="/ambientes" class="btn btn-danger">Cancelar</a>
+                                    </div>
                                 </div>
-                                <div class="card-action">
-                                    <button class="btn btn-success" type="submit">Salvar</button>
-                                    <a href="/ambientes" class="btn btn-danger">Cancelar</a>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div th:replace="~{/fragments/footer.html :: footer}"></div>
     </div>
-    <div th:replace="~{/fragments/footer.html :: footer}"></div>
-</div>
-<!-- Custom template | don't include it in your project! -->
+    <!-- Custom template | don't include it in your project! -->
 
 
-<!-- End Custom template -->
+    <!-- End Custom template -->
 </div>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery-3.7.1.min.js"></script>

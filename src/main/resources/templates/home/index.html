@@ -1,10 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Cadastro de Ambientes</title>
+
+    <div th:replace="~{/fragments/heads.html :: heads}"></div>
+    <link rel="stylesheet" href="/assets/css/home.css" />
+
+
 </head>
 <body>
-Minha Homepage
+<div class="wrapper">
+    <!--sidebar-->
+    <div th:replace="~{/fragments/sidebar.html :: sidebar}"></div>
+    <!--end sidebar-->
+
+    <div class="main-panel">
+        <div th:replace="~{/fragments/main-header.html :: main-header}"></div>
+
+        <div class="container">
+            <div class="page-inner">
+
+
+                <div class="row">
+
+
+                    <header>
+                        <h1>Agende seu ambiente</h1>
+                    </header>
+
+                    <main>
+                        <section id="ambientes">
+                            <h2>Nossos ambientes</h2>
+                            <div class="row">
+                                <div class="col-6">
+                                <ul>
+                                    <li>Sala Maker</li>
+                                    <li>Laboratório de Informática I</li>
+                                    <li>Laboratório de Informática II</li>
+                                    <li>Laboratório de Ciências Físicas</li>
+                                    <li>Laboratório de Ciências Químicas e Ciências Biológicas</li>
+
+
+                                </ul>
+                            </div>
+                                <div class="col-6">
+                                <ul>
+
+                                    <li>Biblioteca</li>
+                                    <li>Quadra Poliesportiva</li>
+                                    <li>Vivências Artísticas</li>
+                                    <li>Programação e Robótica</li>
+
+                                </ul>
+                                </div>
+                            </div>
+
+                        </section>
+
+                        <section id="como-funciona">
+                            <h2>Como funciona?</h2>
+                            <ol>
+                                <li>Escolha seu ambiente</li>
+                                <li>Verifique a disponibilidade</li>
+                                <li>Faça sua reserva</li>
+                            </ol>
+                        </section>
+
+                        <section id="contato">
+                            <h2>Contato</h2>
+                            <p>Para mais informações, entre em contato conosco:</p>
+                            <p>E-mail: contato@agendamentodeambientes.com</p>
+                            <p>Telefone: (XX) XXXX-XXXX</p>
+                        </section>
+                    </main>
+
+
+                </div>
+            </div>
+        </div>
+        <div th:replace="~{fragments/footer.html :: footer}"></div>
+
+        <!-- Custom template | don't include it in your project! -->
+
+
+        <!-- End Custom template -->
+    </div>
+
+</div>
 </body>
 </html>
