@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Cadastro de Professores</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
@@ -27,14 +27,14 @@
         <div class="container">
             <div class="page-inner">
                 <div class="page-header">
-                    <h3 class="fw-bold mb-3">Cadastrar Professor</h3>
+                    <h3 class="fw-bold mb-3">Cadastrar professor</h3>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <form action="#" th:action="@{/professor/inserir}" th:object="${professor}" method="post">
                                 <div class="card-header">
-                                    <div class="card-title">Dados do Professor</div>
+                                    <div class="card-title">Dados do professor</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -45,39 +45,36 @@
                                                         type="text"
                                                         class="form-control"
                                                         id="nome"
-                                                        placeholder="Informe o Nome do Professor"
+                                                        placeholder="Informe o nome do professor"
                                                         th:field="*{nome}"
                                                 />
                                             </div>
                                             <div class="form-group col-md-3">
-                                            <label for="cpf">CPF</label>
-                                            <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    id="cpf"fc
-                                                    placeholder="Informe o CPF"
-                                                    th:field="*{cpf}"
-                                            />
-                                        </div>
+                                                <label for="cpf">CPF</label>
+                                                <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        id="cpf" fc
+                                                        placeholder="Informe o CPF"
+                                                        th:field="*{cpf}"
+                                                />
+                                            </div>
                                             <div class="form-group col-md-3">
                                                 <label for="email">E-mail</label>
                                                 <input
                                                         type="email"
                                                         class="form-control"
                                                         id="email"
-                                                        placeholder="Informe o E-mail do Professor"
+                                                        placeholder="Informe o e-mail do professor"
                                                         th:field="*{email}"
                                                 />
+                                            </div>
                                         </div>
-
-
-
-
                                     </div>
-                                </div>
-                                <div class="card-action">
-                                    <button class="btn btn-success" type="submit">Salvar</button>
-                                    <a href="/professor" class="btn btn-danger">Cancelar</a>
+                                    <div class="card-action">
+                                        <button class="btn btn-success" type="submit">Salvar</button>
+                                        <a href="/professor" class="btn btn-danger">Cancelar</a>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -86,30 +83,27 @@
             </div>
         </div>
         <div th:replace="~{/fragments/footer.html :: footer}"></div>
-
-        <!-- Custom template | don't include it in your project! -->
-
-
-
-
-
-
-
-        <!-- End Custom template -->
     </div>
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
 
-    <!-- jQuery Scrollbar -->
-    <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-    <!-- Datatables -->
-    <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
-    <!-- Kaiadmin JS -->
-    <script src="../assets/js/kaiadmin.min.js"></script>
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="../assets/js/setting-demo2.js"></script>
+
+    <!-- Custom template | don't include it in your project! -->
+
+
+    <!-- End Custom template -->
+</div>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery-3.7.1.min.js"></script>
+<script src="../assets/js/core/popper.min.js"></script>
+<script src="../assets/js/core/bootstrap.min.js"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<!-- Datatables -->
+<script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+<!-- Kaiadmin JS -->
+<script src="../assets/js/kaiadmin.min.js"></script>
+<!-- Kaiadmin DEMO methods, don't include it in your project! -->
+<script src="../assets/js/setting-demo2.js"></script>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Cadastro de Professores</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
@@ -22,19 +22,17 @@
                     <div class="col-md-12">
 
 
-
                         <div id="mensagem" class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             <span th:text="${mensagem}"></span>
                         </div>
 
 
-
-
                         <div class="card">
                             <div class="card-header">
-                                <span class="card-title">Listagem de Professoress</span>
-                                <a th:href="@{/professor/form-inserir}" class="btn btn-danger" style="float: right"> Novo Professor</a>
+                                <span class="card-title">Listagem de professores</span>
+                                <a th:href="@{/professor/form-inserir}" class="btn btn-danger" style="float: right">
+                                    Novo professor</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -63,7 +61,8 @@
                                             <td><span th:text="${professor.email}"> Email </span></td>
                                             <td>
 
-                                                <a th:href="@{/professor/form-alterar/{id}(id=${professor.id})}" class="edit" data-toggle="modal">
+                                                <a th:href="@{/professor/form-alterar/{id}(id=${professor.id})}"
+                                                   class="edit" data-toggle="modal">
                                                     <i class="fa fa-edit" data-toggle="tooltip" title="Alterar"></i>
                                                 </a>
                                                 <a th:href="@{/professor/excluir/{id}(id=${professor.id})}"
@@ -72,74 +71,70 @@
 
                                                    id="alertDelete"
                                                    class="delete">
-                                                    <i class="fa fa-times" style="color: red; margin-left: 10px;" data-toggle="tooltip" title="Excluir"></i>
+                                                    <i class="fa fa-times" style="color: red; margin-left: 10px;"
+                                                       data-toggle="tooltip" title="Excluir"></i>
                                                 </a>
 
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
-    <div th:replace="~{fragments/footer.html :: footer}"></div>
-
-    <!-- Custom template | don't include it in your project! -->
-
+        <div th:replace="~{fragments/footer.html :: footer}"></div>
+    </div>
+        <!-- Custom template | don't include it in your project! -->
 
 
+        <!-- End Custom template -->
+    </div>
+    <!--   Core JS Files   -->
+    <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/core/popper.min.js"></script>
+    <script src="../assets/js/core/bootstrap.min.js"></script>
 
-
-
-
-    <!-- End Custom template -->
-</div>
-<!--   Core JS Files   -->
-<script src="../assets/js/core/jquery-3.7.1.min.js"></script>
-<script src="../assets/js/core/popper.min.js"></script>
-<script src="../assets/js/core/bootstrap.min.js"></script>
-
-<!-- jQuery Scrollbar -->
-<script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-<!-- Datatables -->
-<script src="../assets/js/plugin/datatables/datatables.min.js"></script>
-<!-- Kaiadmin JS -->
-<script src="../assets/js/kaiadmin.min.js"></script>
-<!-- Kaiadmin DEMO methods, don't include it in your project! -->
-<script src="../assets/js/setting-demo2.js"></script>
-<script>
-    $(document).ready(function () {
-      $("#basic-datatables").DataTable({
-          language: {
-              search: "Pesquisar:",
-              // traduzir label de "Showing 1 to 10 of 57 entries"
-              info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-              // traduzir label de "Showing 1 to 10 of 57 entries"
-              infoEmpty: "Mostrando 0 a 0 de 0 registros",
-              // traduzir label de "Showing 1 to 10 of 57 entries"
-              infoFiltered: "(filtrado de _MAX_ registros)",
-              // traduzir label de "Showing 1 to 10 of 57 entries"
-              infoPostFix: "",
-              // traduzir label de "Showing 1 to 10 of 57 entries"
-              lengthMenu: "Mostrar _MENU_ registros",
-              paginate:{
-                  first: "Primeiro",
-                  last: "Último",
-                  next: "Próximo",
-                  previous: "Anterior",
+    <!-- jQuery Scrollbar -->
+    <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <!-- Datatables -->
+    <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+    <!-- Kaiadmin JS -->
+    <script src="../assets/js/kaiadmin.min.js"></script>
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="../assets/js/setting-demo2.js"></script>
+    <script>
+        $(document).ready(function () {
+          $("#basic-datatables").DataTable({
+              language: {
+                  search: "Pesquisar:",
+                  // traduzir label de "Showing 1 to 10 of 57 entries"
+                  info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                  // traduzir label de "Showing 1 to 10 of 57 entries"
+                  infoEmpty: "Mostrando 0 a 0 de 0 registros",
+                  // traduzir label de "Showing 1 to 10 of 57 entries"
+                  infoFiltered: "(filtrado de _MAX_ registros)",
+                  // traduzir label de "Showing 1 to 10 of 57 entries"
+                  infoPostFix: "",
+                  // traduzir label de "Showing 1 to 10 of 57 entries"
+                  lengthMenu: "Mostrar _MENU_ registros",
+                  paginate:{
+                      first: "Primeiro",
+                      last: "Último",
+                      next: "Próximo",
+                      previous: "Anterior",
+                  },
               },
-          },
-      });
+          });
 
-       // fade out the alert after 5 seconds
-            $("#mensagem").fadeTo(2000, 500).slideUp(500, function () {
-                $("#mensagem").slideUp(500);
-            });
-  });
-</script>
+           // fade out the alert after 5 seconds
+                $("#mensagem").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#mensagem").slideUp(500);
+                });
+      });
+    </script>
 </body>
 </html>

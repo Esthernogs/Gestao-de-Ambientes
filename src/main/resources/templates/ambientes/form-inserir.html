@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Cadastro de ambientes</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Cadastro de Ambientes</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
@@ -27,12 +27,13 @@
         <div class="container">
             <div class="page-inner">
                 <div class="page-header">
-                    <h3 class="fw-bold mb-3">Cadastrar Ambiente</h3>
+                    <h3 class="fw-bold mb-3">Cadastrar ambiente</h3>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form action="#" th:action="@{/ambientes/salvar}" enctype="multipart/form-data"  th:object="${ambiente}" method="post">
+                            <form action="#" th:action="@{/ambientes/salvar}" enctype="multipart/form-data"
+                                  th:object="${ambiente}" method="post">
                                 <div class="card-header">
                                     <div class="card-title">Dados do ambiente</div>
                                 </div>
@@ -45,7 +46,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         id="nome"
-                                                        placeholder="Informe o Nome do Ambiente"
+                                                        placeholder="Informe o nome do ambiente"
                                                         th:field="*{nome}"
                                                 />
                                             </div>
@@ -61,7 +62,7 @@
                                             </div>
 
                                             <div class="form-group col-md-3">
-                                                <label for="agendamento">Agendamento de Ambiente</label>
+                                                <label for="agendamento">Agendamento de ambiente</label>
                                                 <input
                                                         type="text"
                                                         class="form-control"
@@ -72,7 +73,7 @@
                                             </div>
 
                                             <div class="form-group col-md-3">
-                                                <label for="image">Foto do Ambiente</label>
+                                                <label for="image">Foto do ambiente</label>
                                                 <input
                                                         type="file"
                                                         class="form-control"
@@ -87,6 +88,7 @@
                                         <button class="btn btn-success" type="submit">Salvar</button>
                                         <a href="/ambientes" class="btn btn-danger">Cancelar</a>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -94,29 +96,24 @@
             </div>
         </div>
         <div th:replace="~{/fragments/footer.html :: footer}"></div>
-
-        <!-- Custom template | don't include it in your project! -->
-
-
-
-
-
-
-
-        <!-- End Custom template -->
     </div>
-    <!--   Core JS Files   -->
-    <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <!-- Custom template | don't include it in your project! -->
 
-    <!-- jQuery Scrollbar -->
-    <script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-    <!-- Datatables -->
-    <script src="../assets/js/plugin/datatables/datatables.min.js"></script>
-    <!-- Kaiadmin JS -->
-    <script src="../assets/js/kaiadmin.min.js"></script>
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="../assets/js/setting-demo2.js"></script>
+
+    <!-- End Custom template -->
+</div>
+<!--   Core JS Files   -->
+<script src="../assets/js/core/jquery-3.7.1.min.js"></script>
+<script src="../assets/js/core/popper.min.js"></script>
+<script src="../assets/js/core/bootstrap.min.js"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<!-- Datatables -->
+<script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+<!-- Kaiadmin JS -->
+<script src="../assets/js/kaiadmin.min.js"></script>
+<!-- Kaiadmin DEMO methods, don't include it in your project! -->
+<script src="../assets/js/setting-demo2.js"></script>
 </body>
 </html>
