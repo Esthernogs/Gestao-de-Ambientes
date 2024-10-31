@@ -88,4 +88,11 @@ private AmbienteRepository ambienteRepository;
         return "ambientes/form-alterar";
     }
 
+    @GetMapping ("/form-agendar/{id}")
+    public String formAgendar (@PathVariable ("id") Long id, Model model){
+        Ambiente ambiente = ambienteRepository.findById(id).orElseThrow();
+        model.addAttribute("ambiente", ambiente);
+        return "agendar/agendamento";
+    }
+
 }

@@ -44,7 +44,7 @@
                         <p class="card-text" th:text="${ambiente.descricao}">
                             descrição
                         </p>
-                        <a href="#" class="btn btn-primary btn-rounded btn-sm"
+                        <a th:href="@{/ambientes/form-agendar/{id}(id=${ambiente.id})}" class="btn btn-primary btn-rounded btn-sm"
                         >Agendar</a
                         >
                     </div>
