@@ -2,7 +2,7 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Cadastro de Professores</title>
+    <title>Cadastro de docentes</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
@@ -16,25 +16,27 @@
     <div class="main-panel">
         <div class="main-header">
 
-            <!-- Fragmento de código que será substituído pelo conteúdo do fragmento "logo" -->
+            <div th:replace="~{/fragments/main-header.html :: main-header}"></div>
+
+            <!-- Fragmento de código que será substituído pelo conteúdo do fragmento "logo"
             <div th:replace="~{/fragments/logo.html :: logo}"></div>
-            <!-- Navbar Header -->
+             Navbar Header
             <div th:replace="~{/fragments/navbar.html :: navbar}"></div>
-            <!-- End Navbar -->
-        </div>
+             End Navbar
+        </div>-->
 
 
         <div class="container">
             <div class="page-inner">
                 <div class="page-header">
-                    <h3 class="fw-bold mb-3">Cadastrar professor</h3>
+                    <h3 class="fw-bold mb-3">Cadastrar docente</h3>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <form action="#" th:action="@{/professor/inserir}" th:object="${professor}" method="post">
                                 <div class="card-header">
-                                    <div class="card-title">Dados do professor</div>
+                                    <div class="card-title">Dados do docente</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">

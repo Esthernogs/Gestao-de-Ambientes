@@ -1,5 +1,6 @@
 package com.example.gestaoamb.controller;
 
+import com.example.gestaoamb.model.AgendarAmbiente;
 import com.example.gestaoamb.model.Ambiente;
 import com.example.gestaoamb.model.Pessoa;
 import com.example.gestaoamb.model.Professor;
@@ -39,7 +40,7 @@ private AmbienteRepository ambienteRepository;
     @GetMapping("/form-inserir")
     public String formInserir(Model model){
 
-        model.addAttribute("ambiente", new Ambiente());
+        model.addAttribute("agendarAmbiente", new AgendarAmbiente() );
         return "ambientes/form-inserir";
     }
 

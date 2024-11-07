@@ -14,14 +14,16 @@
     <!-- End Sidebar -->
 
     <div class="main-panel">
-        <div class="main-header">
 
-            <!-- Fragmento de código que será substituído pelo conteúdo do fragmento "logo" -->
+        <div th:replace="~{/fragments/main-header.html :: main-header}"></div>
+        <!--<div class="main-header">
+
+             Fragmento de código que será substituído pelo conteúdo do fragmento "logo"
             <div th:replace="~{/fragments/logo.html :: logo}"></div>
-            <!-- Navbar Header -->
+            <!-- Navbar Header
             <div th:replace="~{/fragments/navbar.html :: navbar}"></div>
-            <!-- End Navbar -->
-        </div>
+            <!-- End Navbar
+        </div>-->
 
 
         <div class="container">
@@ -58,17 +60,6 @@
                                                         id="descricao"
                                                         placeholder="Informe a descrição"
                                                         th:field="*{descricao}"
-                                                />
-                                            </div>
-
-                                            <div class="form-group col-md-3">
-                                                <label for="agendamento">Agendamento de ambiente</label>
-                                                <input
-                                                        type="date"
-                                                        class="form-control"
-                                                        id="agendamento"
-                                                        placeholder="Agendamento"
-                                                        th:field="*{dataAgendamento}"
                                                 />
                                             </div>
 

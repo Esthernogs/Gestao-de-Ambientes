@@ -32,19 +32,20 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form action="#" th:action="@{/ambientes/salvar}" enctype="multipart/form-data"
-                                  th:object="${ambiente}" method="post">
+                            <form action="#" th:action="@{/agendar-ambiente/salvar}" enctype="multipart/form-data"
+                                  th:object="${agendarAmbinete}" method="post">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12 col-lg-12">
                                             <div class="form-group">
-                                                <label for="nome">Nome</label>
+                                                <label for="nome">Sala multidisciplinar</label>
                                                 <input
                                                         type="text"
                                                         class="form-control"
+                                                        readonly
                                                         id="nome"
                                                         placeholder="Informe o nome do ambiente"
-                                                        th:field="*{nome}"
+                                                        th:field="*{agendarAmbiente.ambiente.nome}"
                                                 />
                                             </div>
                                             <div class="form-group col-md-3">
@@ -62,7 +63,7 @@
                                                 <label>Horários:</label>
 
                                                 <!-- dropdown de etnias-->
-                                                <select name="horarios">
+                                                <select name="horarios" th:field="*{horarios}">
                                                     <option value="">Selecione</option>
                                                     <option
                                                             th:each="horario : ${T(com.example.gestaoamb.enums.Horarios).values()}"
@@ -78,9 +79,10 @@
                                         </div>
                                         <div class="card-action">
                                             <button class="btn btn-success" type="submit">Salvar</button>
-                                            <a href="/ambientes" class="btn btn-danger">Cancelar</a>
+                                            <a href="/ambientes/listagem-cards" class="btn btn-danger">Cancelar</a>
                                         </div>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>

@@ -16,25 +16,27 @@
     <div class="main-panel">
         <div class="main-header">
 
-            <!-- Fragmento de código que será substituído pelo conteúdo do fragmento "logo" -->
+            <div th:replace="~{/fragments/main-header.html :: main-header}"></div>
+
+            <!-- Fragmento de código que será substituído pelo conteúdo do fragmento "logo"
             <div th:replace="~{/fragments/logo.html :: logo}"></div>
-            <!-- Navbar Header -->
+             Navbar Header
             <div th:replace="~{/fragments/navbar.html :: navbar}"></div>
-            <!-- End Navbar -->
-        </div>
+             End Navbar
+        </div>-->
 
 
         <div class="container">
             <div class="page-inner">
                 <div class="page-header">
-                    <h3 class="fw-bold mb-3">Cadastrar Usuario</h3>
+                    <h3 class="fw-bold mb-3">Cadastrar docente</h3>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <form action="#" th:action="@{/user/salvar}" enctype="multipart/form-data" th:object="${user}" method="post">
                                 <div class="card-header">
-                                    <div class="card-title">Dados do Usuario</div>
+                                    <div class="card-title">Dados do docente</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">

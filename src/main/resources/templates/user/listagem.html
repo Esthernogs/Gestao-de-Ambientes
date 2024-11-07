@@ -2,7 +2,7 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Cadastro de Professores</title>
+    <title>Cadastro de docentes</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
@@ -22,15 +22,6 @@
                     <div class="col-md-12">
 
 
-
-
-
-
-
-
-
-
-
                         <div id="mensagem" class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                             <span th:text="${mensagem}"></span>
@@ -41,8 +32,8 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <span class="card-title">Listagem de usuários</span>
-                                <a th:href="@{/user/form-inserir}" class="btn btn-danger" style="float: right">Novo Professor</a>
+                                <span class="card-title">Listagem de docentes</span>
+                                <a th:href="@{/user/form-inserir}" class="btn btn-danger" style="float: right">Novo docente</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
