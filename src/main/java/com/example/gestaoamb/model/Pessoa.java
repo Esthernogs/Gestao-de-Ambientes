@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,12 +24,14 @@ import lombok.NoArgsConstructor;
 public class Pessoa {
 
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
 
-
+    @CPF(message = "CPF inválido")
     private String cpf;
+
     private String email;
 
     public Long getId() {

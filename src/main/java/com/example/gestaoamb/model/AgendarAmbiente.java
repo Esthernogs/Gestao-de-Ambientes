@@ -9,20 +9,21 @@ import lombok.NoArgsConstructor;
 import java.sql.Date;
 import java.sql.Time;
 
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class AgendarAmbiente {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+
+    @ManyToOne
     private Ambiente ambiente;
+
     @Temporal(TemporalType.DATE)
     @Basic
     private Date dateAgendamento;
     private Horarios horarios;
-
 }

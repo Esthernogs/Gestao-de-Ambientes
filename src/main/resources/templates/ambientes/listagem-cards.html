@@ -13,14 +13,17 @@
         <div th:replace="~{/fragments/main-header.html :: main-header}"></div>
         <div class="container">
             <div class="page-inner">
+                <div id="mensagem" class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <span th:text="${mensagem}"></span>
+                </div>
+
                 <!-- linhas -->
                 <div class="row">
                     <!-- Customized Card -->
                     <div class="card">
                         <div class="card-header">
                             <span class="card-title">Salas multidisciplinares</span>
-                            <a th:href="@{/ambientes/form-inserir}" class="btn btn-danger" style="float: right">Inserir
-                                ambiente</a>
                         </div>
                     </div>
                     <!--Fim Customized Card -->
@@ -46,6 +49,10 @@
                         </p>
                         <a th:href="@{/ambientes/form-agendar/{id}(id=${ambiente.id})}" class="btn btn-primary btn-rounded btn-sm"
                         >Agendar</a
+                        >
+                        <a th:href="@{/ambientes/agendamentos-ambientes/{id}(id=${ambiente.id})}" class="btn btn-primary btn-rounded btn-sm"
+                           style="float:right"
+                        >Visualizar agendamentos</a
                         >
                     </div>
                 </div>

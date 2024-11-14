@@ -2,8 +2,7 @@ package com.example.gestaoamb.controller;
 
 import com.example.gestaoamb.model.AgendarAmbiente;
 import com.example.gestaoamb.model.Ambiente;
-import com.example.gestaoamb.model.Pessoa;
-import com.example.gestaoamb.model.Professor;
+import com.example.gestaoamb.repository.AgendarAmbienteRepository;
 import com.example.gestaoamb.repository.AmbienteRepository;
 import com.example.gestaoamb.util.FileUploadUtil;
 import jakarta.validation.Valid;
@@ -17,13 +16,17 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/ambientes")
 public class AmbienteController {
 
-@Autowired
-private AmbienteRepository ambienteRepository;
+    @Autowired
+    private AmbienteRepository ambienteRepository;
+
+    @Autowired
+    private AgendarAmbienteRepository agendarAmbienteRepository;
 
     @GetMapping("/listagem-cards")
     public String listagemcards(Model model) {
@@ -32,15 +35,15 @@ private AmbienteRepository ambienteRepository;
     }
 
     @GetMapping
-    public String listagem(Model model){
+    public String listagem(Model model) {
         model.addAttribute("ambientes", ambienteRepository.findAll());
         return "ambientes/listagem";
     }
 
     @GetMapping("/form-inserir")
-    public String formInserir(Model model){
+    public String formInserir(Model model) {
 
-        model.addAttribute("agendarAmbiente", new AgendarAmbiente() );
+        model.addAttribute("ambiente", new Ambiente());
         return "ambientes/form-inserir";
     }
 
@@ -51,9 +54,9 @@ private AmbienteRepository ambienteRepository;
             BindingResult result,
             RedirectAttributes redirectAttributes,
             @RequestParam("foto") MultipartFile multipartFile
-    )throws IOException {
-        if (result.hasErrors()){
-            return  "ambientes/form-inserir";
+    ) throws IOException {
+        if (result.hasErrors()) {
+            return "ambientes/form-inserir";
         }
 
         String extensao = StringUtils.getFilenameExtension(multipartFile.getOriginalFilename());
@@ -63,15 +66,15 @@ private AmbienteRepository ambienteRepository;
         ambiente.setImage(fileName);
         ambienteRepository.save(ambiente);
 
-        String uploadPasta =  "src/main/resources/static/assets/img/fotos-ambientes";
+        String uploadPasta = "src/main/resources/static/assets/img/fotos-ambientes";
 
         FileUploadUtil.saveFile(uploadPasta, fileName, multipartFile);
         redirectAttributes.addFlashAttribute("mensagem", "Ambiente inserido com sucesso!");
         return "redirect:/ambientes";
     }
 
-    @GetMapping ("/excluir/{id}" )
-    public String excluir (@PathVariable("id") Long id, RedirectAttributes redirectAttributes){
+    @GetMapping("/excluir/{id}")
+    public String excluir(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
         Ambiente ambiente = ambienteRepository.findById(id).orElseThrow();
 
         ambienteRepository.delete(ambiente);
@@ -82,18 +85,28 @@ private AmbienteRepository ambienteRepository;
 
     }
 
-    @GetMapping ("/form-alterar/{id}")
-    public String formAlterar (@PathVariable ("id") Long id, Model model){
+    @GetMapping("/form-alterar/{id}")
+    public String formAlterar(@PathVariable("id") Long id, Model model) {
         Ambiente ambiente = ambienteRepository.findById(id).orElseThrow();
         model.addAttribute("ambiente", ambiente);
         return "ambientes/form-alterar";
     }
 
-    @GetMapping ("/form-agendar/{id}")
-    public String formAgendar (@PathVariable ("id") Long id, Model model){
+    @GetMapping("/form-agendar/{id}")
+    public String formAgendar(@PathVariable("id") Long id, Model model) {
         Ambiente ambiente = ambienteRepository.findById(id).orElseThrow();
-        model.addAttribute("ambiente", ambiente);
+        AgendarAmbiente agendaAmbiente = new AgendarAmbiente();
+        agendaAmbiente.setAmbiente(ambiente);
+        model.addAttribute("agendarAmbiente", agendaAmbiente);
         return "agendar/agendamento";
     }
 
+
+    @GetMapping("/agendamentos-ambientes/{id}")
+    public String formAgendamentos(@PathVariable("id") Long id, Model model) {
+
+        List<AgendarAmbiente> agendamentos = agendarAmbienteRepository.findByAmbienteId(id);
+        model.addAttribute("agendamentos", agendamentos);
+        return "agendar/agendamentos-ambientes";
+    }
 }

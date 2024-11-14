@@ -24,6 +24,6 @@ public class AgendarAmbienteController {
 
         agendarAmbienteRepository.save(agendarAmbiente);
         redirectAttributes.addFlashAttribute("mensagem", "Agendamento realizado com sucesso!");
-        return "redirect:/agendar-ambiente";
+        return "redirect:/ambientes/listagem-cards";
     }
 }

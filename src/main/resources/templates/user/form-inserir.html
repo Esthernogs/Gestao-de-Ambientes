@@ -1,129 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Cadastro de Usuarios</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Cadastro de docentes</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
 </head>
+
+
 <body>
-<div class="wrapper">
-    <!-- Sidebar -->
-    <div th:replace="~{/fragments/sidebar.html :: sidebar}"></div>
-    <!-- End Sidebar -->
+   <div class="wrapper">
+        <div th:replace="~{/fragments/sidebar.html :: sidebar}"></div>
 
-    <div class="main-panel">
-        <div class="main-header">
-
+        <div class="main-panel">
             <div th:replace="~{/fragments/main-header.html :: main-header}"></div>
 
-            <!-- Fragmento de código que será substituído pelo conteúdo do fragmento "logo"
-            <div th:replace="~{/fragments/logo.html :: logo}"></div>
-             Navbar Header
-            <div th:replace="~{/fragments/navbar.html :: navbar}"></div>
-             End Navbar
-        </div>-->
+            <div class="container">
+                <div class="page-inner">
+                    <h3 class="fw-bold mb-3">Cadastrar usuário</h3>
 
 
-        <div class="container">
-            <div class="page-inner">
-                <div class="page-header">
-                    <h3 class="fw-bold mb-3">Cadastrar docente</h3>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <form action="#" th:action="@{/user/salvar}" enctype="multipart/form-data" th:object="${user}" method="post">
-                                <div class="card-header">
-                                    <div class="card-title">Dados do docente</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12 col-lg-12">
-                                            <div class="form-group">
-                                                <label for="firstName">Nome</label>
-                                                <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="firstName"
-                                                        placeholder="Informe o Nome Completo"
-                                                        th:field="*{firstName}"
-                                                />
-                                            </div>
-
-                                            <div class="form-group col-md-3">
-                                                <label for="email">E-mail</label>
-                                                <input
-                                                        type="email"
-                                                        class="form-control"
-                                                        id="email"
-                                                        placeholder="Informe o E-mail do Usuario"
-                                                        th:field="*{email}"
-                                                />
-                                        </div>
-
-                                            <div class="form-group col-md-3">
-                                                <label for="username">Nome de usuario</label>
-                                                <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="username"
-                                                        placeholder="Informe o Nome do Usuario"
-                                                        th:field="*{username}"
-                                                />
-                                            </div>
-
-                                            <div class="form-group col-md-3">
-                                                <label for="password">Senha</label>
-                                                <input
-                                                        type="password"
-                                                        class="form-control"
-                                                        id="password"
-                                                        placeholder="Informe a Senha do Usuario"
-                                                        th:field="*{password}"
-                                                />
-                                            </div>
-
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <form action="#" th:action="@{/user/salvar}" enctype="multipart/form-data" th:object="${user}" method="post">
+                                    <div class="card-header">
+                                        <div class="card-title">Dados do usuário</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
                                             <div class="col-md-12 col-lg-12">
+
                                                 <div class="form-group">
-                                                    <label for="foto">Foto</label>
+                                                    <label for="firstName">Nome</label>
                                                     <input
-                                                            type="file"
-                                                            name="foto"
-                                                            accept="image/png, image/jpeg"
+                                                            type="text"
                                                             class="form-control"
-                                                            id="foto"
+                                                            id="firstName"
+                                                            placeholder="Informe o Nome Completo"
+                                                            th:field="*{firstName}"
                                                     />
+                                                </div>
+
+                                                <div class="form-group col-md-3">
+                                                    <label for="email">E-mail</label>
+                                                    <input
+                                                            type="email"
+                                                            class="form-control"
+                                                            id="email"
+                                                            placeholder="Informe o E-mail do Usuario"
+                                                            th:field="*{email}"
+                                                    />
+                                                </div>
+
+                                                <div class="form-group col-md-3">
+                                                    <label for="username">Nome de usuario</label>
+                                                    <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="username"
+                                                            placeholder="Informe o Nome do Usuario"
+                                                            th:field="*{username}"
+                                                    />
+                                                </div>
+
+                                                <div class="form-group col-md-3">
+                                                    <label for="password">Senha</label>
+                                                    <input
+                                                            type="password"
+                                                            class="form-control"
+                                                            id="password"
+                                                            placeholder="Informe a Senha do Usuario"
+                                                            th:field="*{password}"
+                                                    />
+                                                </div>
+
+                                                <div class="col-md-12 col-lg-12">
+                                                    <div class="form-group">
+                                                        <label for="foto">Foto</label>
+                                                        <input
+                                                                type="file"
+                                                                name="foto"
+                                                                accept="image/png, image/jpeg"
+                                                                class="form-control"
+                                                                id="foto"
+                                                        />
+                                                    </div>
+
 
                                                 </div>
                                             </div>
 
+                                        </div>
+                                        <div class="card-action">
+                                            <button class="btn btn-success" type="submit">Salvar</button>
+                                            <a href="/professor" class="btn btn-danger">Cancelar</a>
+                                        </div>
 
                                     </div>
-                                </div>
-                                <div class="card-action">
-                                    <button class="btn btn-success" type="submit">Salvar</button>
-                                    <a href="/user" class="btn btn-danger">Cancelar</a>
-                                </div>
-                            </form>
+                                </form>
+
+                            </div>
                         </div>
                     </div>
+
+
+
+
+
                 </div>
+
             </div>
+              <div th:replace="~{/fragments/footer.html :: footer}"></div>
         </div>
-        <div th:replace="~{/fragments/footer.html :: footer}"></div>
-
-        <!-- Custom template | don't include it in your project! -->
+   </div>
 
 
-
-
-
-
-
-        <!-- End Custom template -->
-    </div>
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
