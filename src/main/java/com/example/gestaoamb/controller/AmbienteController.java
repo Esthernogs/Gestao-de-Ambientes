@@ -101,9 +101,23 @@ public class AmbienteController {
         return "agendar/agendamento";
     }
 
+    @GetMapping("/form-alterar-agendamento/{id}/{idAgendamento}")
+    public String formAlterarAgendar(@PathVariable("id") Long id, @PathVariable("idAgendamento") Long idAgendarAmbiente, Model model) {
+        Ambiente ambiente = ambienteRepository.findById(id).orElseThrow();
+        AgendarAmbiente agendaAmbiente = agendarAmbienteRepository.findById(idAgendarAmbiente).orElseThrow();
+        agendaAmbiente.setAmbiente(ambiente);
+        model.addAttribute("agendarAmbiente", agendaAmbiente);
+        return "agendar/alterar-agendamento";
+    }
+
 
     @GetMapping("/agendamentos-ambientes/{id}")
     public String formAgendamentos(@PathVariable("id") Long id, Model model) {
+
+        Ambiente ambiente = ambienteRepository.findById(id).orElseThrow();
+        model.addAttribute("nomeAmbiente", ambiente.getNome());
+        model.addAttribute("idAmbiente", ambiente.getId());
+
 
         List<AgendarAmbiente> agendamentos = agendarAmbienteRepository.findByAmbienteId(id);
         model.addAttribute("agendamentos", agendamentos);
