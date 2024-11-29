@@ -37,7 +37,8 @@ public class User implements UserDetails {
 
     private String image;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.ALL}, targetEntity = Role.class)
+
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id",
@@ -45,7 +46,7 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn
                     (name = "role_id",
                             referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private Collection<Role> roles = new ArrayList<>();
 
 
     @Override

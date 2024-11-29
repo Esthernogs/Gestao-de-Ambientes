@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<html
+        lang="pt" xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>Ambientes</title>
@@ -24,6 +27,7 @@
                     <div class="card">
                         <div class="card-header">
                             <span class="card-title">Salas multidisciplinares</span>
+                            <a sec:authorize="hasAnyAuthority('ADMINISTRADOR')" th:href="@{/ambientes}" class="btn btn-danger" style="float: right"> Ambientes </a>
                         </div>
                     </div>
                     <!--Fim Customized Card -->

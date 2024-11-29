@@ -2,7 +2,7 @@
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Cadastro de docentes</title>
+    <title>Cadastro de administrador</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
@@ -19,14 +19,15 @@
             <div class="container">
                 <div class="page-inner">
                     <div class="page-header">
-                        <h3 class="fw-bold mb-3">Cadastrar docente</h3>
+                        <h3 class="fw-bold mb-3">Cadastro de administrador</h3>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                                <form action="#" th:action="@{/professor/salvar}" th:object="${professor}" method="post" enctype="multipart/form-data">
+                                <form action="#" th:action="@{/administrador/salvar}" th:object="${administrador}" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" th:field="*{id}">
                                     <div class="card-header">
-                                        <div class="card-title">Dados do docente</div>
+                                        <div class="card-title">Dados do administrador</div>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -37,7 +38,7 @@
                                                             type="text"
                                                             class="form-control"
                                                             id="nome"
-                                                            placeholder="Informe o nome do docente"
+                                                            placeholder="Informe o nome do administrador"
                                                             th:field="*{nome}"
                                                     />
                                                 </div>
@@ -57,7 +58,7 @@
                                                             type="email"
                                                             class="form-control"
                                                             id="email"
-                                                            placeholder="Informe o e-mail do docente"
+                                                            placeholder="Informe o e-mail do administrador"
                                                             th:field="*{email}"
                                                     />
                                                 </div>
@@ -88,7 +89,7 @@
                                         </div>
                                         <div class="card-action">
                                             <button class="btn btn-success" type="submit">Salvar</button>
-                                            <a href="/professor" class="btn btn-danger">Cancelar</a>
+                                            <a href="/administrador" class="btn btn-danger">Cancelar</a>
                                         </div>
 
                                         <!-- Mensagem de erro caso o campo CPF seja inválido -->

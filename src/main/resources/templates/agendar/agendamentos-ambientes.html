@@ -1,6 +1,10 @@
 
 </html><!DOCTYPE html>
-<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<html
+        lang="pt"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Agenda</title>
@@ -47,7 +51,7 @@
                                             <th>Data</th>
                                             <th>Horário</th>
                                             <th>Ambiente</th>
-                                            <th>Ações</th>
+                                            <th sec:authorize="hasAnyAuthority('ADMINISTRADOR')">Ações</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -61,7 +65,7 @@
                                             <td><span th:text="${#dates.format(agendamento.dateAgendamento, 'dd/MM/yyyy')}">  data do agentamento </span></td>
                                             <td><span th:text="${agendamento.horarios.descricao}"> horarios </span></td>
                                             <td><span th:text="${agendamento.ambiente.nome}"> ambiente </span></td>
-                                            <td>
+                                            <td sec:authorize="hasAnyAuthority('ADMINISTRADOR')">
 
 
                                                 <a th:href="@{/agendar-ambiente/excluir/{id}/{idAmbiente}(id=${agendamento.id}, idAmbiente=${idAmbiente})}"

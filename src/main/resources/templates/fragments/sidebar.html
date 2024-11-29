@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
 <body>
 <div  th:fragment="sidebar">
 <!-- Sidebar -->
@@ -37,10 +40,10 @@
         <div class="sidebar-content">
             <ul class="nav nav-secondary">
                 <!-- Menu Professor-->
-                <li class="nav-item">
+                <li class="nav-item" sec:authorize="hasAnyAuthority('ADMINISTRADOR')">
                     <a href="/professor">
                         <i class="fa fa-graduation-cap" style="color:#fff;"></i>
-                        <p style="#fff;">Professores</p>
+                        <p>Professores</p>
                     </a>
                 </li>
                 <!-- Fim Menu Professor-->
@@ -49,6 +52,12 @@
                     <a href="/ambientes/listagem-cards">
                         <i class="fa fa-object-group" style="color:#fff;"></i>
                         <p>Ambientes</p>
+                    </a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAnyAuthority('ADMINISTRADOR')">
+                    <a href="/administrador">
+                        <i class="fa fa-user" style="color:#fff;"></i>
+                        <p>Administrador</p>
                     </a>
                 </li>
                 <!-- Fim Menu Ambientes-->

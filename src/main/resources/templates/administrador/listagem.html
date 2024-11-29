@@ -19,7 +19,6 @@
         <div class="container">
             <div class="page-inner">
                 <div class="row">
-
                     <div class="col-md-12">
 
 
@@ -31,9 +30,9 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <span class="card-title">Listagem de docentes</span>
-                                <a th:href="@{/professor/form-inserir}" class="btn btn-danger" style="float: right">
-                                    Novo docente</a>
+                                <span class="card-title">Listagem de Administradores</span>
+                                <a th:href="@{/administrador/form-inserir}" class="btn btn-danger" style="float: right">
+                                    Novo Administrador</a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -51,23 +50,23 @@
                                         </thead>
                                         <tbody>
 
-                                        <tr th:if="${professores.empty}">
+                                        <tr th:if="${administradores.empty}">
                                             <td colspan="2">Nenhum registro encontrado</td>
                                         </tr>
 
                                         <!-- Recurso do Themyleaf. Percorre a lista de alunos e preenche a tabela -->
-                                        <tr th:each="professor : ${professores}">
-                                            <td><span th:text="${professor.nome}"> Nome </span></td>
-                                            <td><span th:text="${professor.cpf}"> CPF </span></td>
-                                            <td><span th:text="${professor.email}"> Email </span></td>
+                                        <tr th:each="administrador : ${administradores}">
+                                            <td><span th:text="${administrador.nome}"> Nome </span></td>
+                                            <td><span th:text="${administrador.cpf}"> CPF </span></td>
+                                            <td><span th:text="${administrador.email}"> Email </span></td>
                                             <td>
 
-                                                <a th:href="@{/professor/form-alterar/{id}(id=${professor.id})}"
+                                                <a th:href="@{/administrador/form-alterar/{id}(id=${administrador.id})}"
                                                    class="edit" data-toggle="modal">
                                                     <i class="fa fa-edit" data-toggle="tooltip" title="Alterar"></i>
                                                 </a>
-                                                <a th:href="@{/professor/excluir/{id}(id=${professor.id})}"
-                                                   th:data-confirm-delete="|Você gostaria de apagar ${professor.nome}?|"
+                                                <a th:href="@{/administrador/excluir/{id}(id=${administrador.id})}"
+                                                   th:data-confirm-delete="|Você gostaria de apagar ${administrador.nome}?|"
                                                    onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
 
                                                    id="alertDelete"

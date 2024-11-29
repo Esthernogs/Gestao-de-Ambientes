@@ -1,131 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Cadastro de Professores</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Cadastro de docentes</title>
 
     <div th:replace="~{/fragments/heads.html :: heads}"></div>
 
 </head>
 <body>
-<div class="wrapper">
-    <!-- Sidebar -->
-    <div th:replace="~{/fragments/sidebar.html :: sidebar}"></div>
-    <!-- End Sidebar -->
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div th:replace="~{/fragments/sidebar.html :: sidebar}"></div>
+        <!-- End Sidebar -->
 
-    <div class="main-panel">
+        <div class="main-panel">
+                <div th:replace="~{/fragments/main-header.html :: main-header}"></div>
 
-            <div th:replace="~{/fragments/main-header.html :: main-header}"></div>
+            <div class="container">
+                <div class="page-inner">
+                    <div class="page-header">
+                        <h3 class="fw-bold mb-3">Cadastrar docente</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <form action="#" th:action="@{/professor/salvar}" th:object="${professor}" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" th:field="*{id}">
+                                    <div class="card-header">
+                                        <div class="card-title">Dados do docente</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="nome">Nome</label>
+                                                    <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="nome"
+                                                            placeholder="Informe o nome do docente"
+                                                            th:field="*{nome}"
+                                                    />
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label for="cpf">CPF</label>
+                                                    <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            id="cpf" fc
+                                                            placeholder="Informe o CPF"
+                                                            th:field="*{cpf}"
+                                                    />
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label for="email">E-mail</label>
+                                                    <input
+                                                            type="email"
+                                                            class="form-control"
+                                                            id="email"
+                                                            placeholder="Informe o e-mail do docente"
+                                                            th:field="*{email}"
+                                                    />
+                                                </div>
+                                                <div class="form-group col-md-3">
+                                                    <label for="password">Senha</label>
+                                                    <input
+                                                            type="password"
+                                                            class="form-control"
+                                                            id="password"
+                                                            placeholder="Informe a Senha do Usuario"
+                                                            th:field="*{user.password}"
+                                                    />
+                                                </div>
 
-            <!-- Fragmento de código que será substituído pelo conteúdo do fragmento "logo"
-            <div th:replace="~{/fragments/logo.html :: logo}"></div>
-             Navbar Header
-            <div th:replace="~{/fragments/navbar.html :: navbar}"></div>
-             End Navbar
-        </div>-->
-
-
-        <div class="container">
-            <div class="page-inner">
-                <div class="page-header">
-                    <h3 class="fw-bold mb-3">Editar</h3>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <form action="#" th:action="@{/professor/alterar}" th:object="${professor}" method="post">
-                                <div class="card-header">
-                                    <div class="card-title">Dados do professor</div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12 col-lg-12">
-                                            <div class="form-group">
-                                                <input type="hidden" name="id"  th:field="*{id}" >
-                                                <label for="nome">Nome</label>
-                                                <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="nome"
-                                                        placeholder="Informe o nome do professor"
-                                                        th:field="*{nome}"
-                                                />
-
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label for="cpf">CPF</label>
-                                                <input
-                                                        type="cpf"
-                                                        class="form-control"
-                                                        id="cpf"
-                                                        placeholder="Informe o CPF do professor"
-                                                        th:field="*{cpf}"
-                                                />
-                                            </div>
-                                            <div class="form-group col-md-3">
-                                                <label for="email">E-mail</label>
-                                                <input
-                                                        type="email"
-                                                        class="form-control"
-                                                        id="email"
-                                                        placeholder="Informe o e-mail do professor"
-                                                        th:field="*{email}"
-                                                />
+                                                <div class="col-md-12 col-lg-12">
+                                                    <div class="form-group">
+                                                        <label for="foto">Foto</label>
+                                                        <input
+                                                                type="file"
+                                                                name="foto"
+                                                                accept="image/png, image/jpeg"
+                                                                class="form-control"
+                                                                id="foto"
+                                                        />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="card-action">
+                                            <button class="btn btn-success" type="submit">Salvar</button>
+                                            <a href="/professor" class="btn btn-danger">Cancelar</a>
+                                        </div>
+
+                                        <!-- Mensagem de erro caso o campo CPF seja inválido -->
+                                        <div class="col-sm-12">
+                                            <span class="mensagem" th:if="${#fields.hasErrors('cpf')}"
+                                            th:errors="*{cpf}"></span>
+                                        </div>
+
+
                                     </div>
-                                </div>
-                                <div class="card-action">
-                                    <button class="btn btn-success" type="submit">Salvar</button>
-                                    <button class="btn btn-danger">Cancelar</button>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div th:replace="~{/fragments/footer.html :: footer}"></div>
         </div>
+    </div><!--tinha uma div duplicada-->
 
 
+<script src="../assets/js/core/jquery-3.7.1.min.js"></script>
+<script src="../assets/js/core/popper.min.js"></script>
+<script src="../assets/js/core/bootstrap.min.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div th:replace="~{/fragments/footer.html :: footer}"></div>
-
-        <!-- Custom template | don't include it in your project! -->
-
-
-
-
-
-
-
-        <!-- End Custom template -->
-    </div>
-    <!--   Core JS Files   -->
-    <script src="/assets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="/assets/js/core/popper.min.js"></script>
-    <script src="/assets/js/core/bootstrap.min.js"></script>
-
-    <!-- jQuery Scrollbar -->
-    <script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-    <!-- Datatables -->
-    <script src="/assets/js/plugin/datatables/datatables.min.js"></script>
-    <!-- Kaiadmin JS -->
-    <script src="/assets/js/kaiadmin.min.js"></script>
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="/assets/js/setting-demo2.js"></script>
+<!-- jQuery Scrollbar -->
+<script src="../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<!-- Datatables -->
+<script src="../assets/js/plugin/datatables/datatables.min.js"></script>
+<!-- Kaiadmin JS -->
+<script src="../assets/js/kaiadmin.min.js"></script>
+<!-- Kaiadmin DEMO methods, don't include it in your project! -->
+<script src="../assets/js/setting-demo2.js"></script>
 
 </body>
 </html>
